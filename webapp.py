@@ -14,7 +14,7 @@ def index():
     # Enter your API key here
     api_key = "0c0e734e8658fca29d68ceef3cdedb0c"
     # Give city name
-    city_name = input("Denver")
+    city_name = "Denver"
     # complete_url variable to store
     # complete url address
     complete_url = "http://api.openweathermap.org/data/2.5/weather?" + "appid=" + api_key + "&q=" + city_name
@@ -31,7 +31,7 @@ def index():
       "sortBy": "top",
       "apiKey": "b006e118ff5b4f2aa356e3a7ee31d802"
     }
-    main_url = " https://newsapi.org/v1/articles"
+    main_url = "https://newsapi.org/v1/articles"
     # fetching data in json format
     res = requests.get(main_url, params=query_params)
     open_bbc_page = res.json()
