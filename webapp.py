@@ -30,7 +30,7 @@ def index():
     city_name = "Denver"
     # complete_url variable to store
     # complete url address
-    complete_url = "http://api.openweathermap.org/data/2.5/weather?" + "appid=" + api_key + "&q=" + city_name
+    complete_url = "http://api.openweathermap2.org/data/2.5/weather?" + "appid=" + api_key + "&q=" + city_name
     # get method of requests module
     # return response object
     
