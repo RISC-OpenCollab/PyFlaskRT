@@ -11,7 +11,7 @@ def index():
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
     # Runtime scanner BEFORE API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/7d181682-3850-11ed-b99b-028b315293dd/ses/80949152-3850-11ed-b99b-028b315293dd/log_service_endpoint_before'
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5d54d01-3853-11ed-b99b-028b315293dd/log_service_endpoint_before'
     myobj = {"url": "http://api.open-notify.org/iss-pass.json", "headers": str(headers), "method":"GET", "request_body":str(query)}
     x = requests.post(url, json = myobj)
 
@@ -19,7 +19,7 @@ def index():
     response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
     
     # Runtime scanner AFTER API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/7d181682-3850-11ed-b99b-028b315293dd/ses/80949152-3850-11ed-b99b-028b315293dd/log_service_endpoint_after'
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5d54d01-3853-11ed-b99b-028b315293dd/log_service_endpoint_after'
     myobj = {"url": "http://api.open-notify.org/iss-pass.json", "http_response_code": response.status_code, "response":response.text}
     x = requests.post(url, json = myobj)
     
@@ -35,14 +35,14 @@ def index():
     # return response object
     
     # Runtime scanner BEFORE API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/7d181682-3850-11ed-b99b-028b315293dd/ses/809eb351-3850-11ed-b99b-028b315293dd/log_service_endpoint_before'
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5ddbd8c-3853-11ed-b99b-028b315293dd/log_service_endpoint_before'
     myobj = {"url": complete_url, "headers": str(headers), "method":"GET", "request_body":"appid=" + api_key + "&q=" + city_name}
     x = requests.post(url, json = myobj)
     
     response = requests.get(complete_url)
 
     # Runtime scanner AFTER API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/7d181682-3850-11ed-b99b-028b315293dd/ses/809eb351-3850-11ed-b99b-028b315293dd/log_service_endpoint_after'
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5ddbd8c-3853-11ed-b99b-028b315293dd/log_service_endpoint_after'
     myobj = {"url": complete_url, "http_response_code": response.status_code, "response":response.text}
     x = requests.post(url, json = myobj)
     
