@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     
     #example simple API call
-    query = {'lat':'45', 'lon':'180'}
+    query = {"lat":"45", "lon":"180"}
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
     # Runtime scanner BEFORE API request
