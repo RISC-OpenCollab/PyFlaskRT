@@ -33,8 +33,19 @@ def index():
     complete_url = "http://api.openweathermap.org/data/2.5/weather?" + "appid=" + api_key + "&q=" + city_name
     # get method of requests module
     # return response object
+    
+    # Runtime scanner BEFORE API request
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/58c234e0-35d5-11ed-b99b-028b315293dd/ses/5b3749d2-35d5-11ed-b99b-028b315293dd/log_service_endpoint_before'
+    myobj = {"url": complete_url, "headers": str(headers), "method":"GET", "request_body":"appid=" + api_key + "&q=" + city_name}
+    x = requests.post(url, json = myobj)
+    
     response = requests.get(complete_url)
 
+    # Runtime scanner AFTER API request
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/58c234e0-35d5-11ed-b99b-028b315293dd/ses/5b3749d2-35d5-11ed-b99b-028b315293dd/log_service_endpoint_after'
+    myobj = {"url": complete_url, "http_response_code": response.status_code, "response":response.text}
+    x = requests.post(url, json = myobj)
+    
     #example variable name, assigned value in code
     # BBC news api
     # following query parameters are used
