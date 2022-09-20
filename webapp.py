@@ -10,18 +10,8 @@ def index():
     query = {"lat":"45", "lon":"180"}
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
-    # Runtime scanner BEFORE API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5d54d01-3853-11ed-b99b-028b315293dd/log_service_endpoint_before'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "headers": str(headers), "method":"GET", "request_body":str(query)}
-    x = requests.post(url, json = myobj)
-
     # Target API request
     response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
-    
-    # Runtime scanner AFTER API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5d54d01-3853-11ed-b99b-028b315293dd/log_service_endpoint_after'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "http_response_code": response.status_code, "response":response.text}
-    x = requests.post(url, json = myobj)
     
     #example variable name, assigned to value in code
     # Enter your API key here
@@ -34,18 +24,8 @@ def index():
     # get method of requests module
     # return response object
     
-    # Runtime scanner BEFORE API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a4bb0117-3924-11ed-b99b-028b315293dd/log_service_endpoint_before'
-    myobj = {"url": complete_url, "headers": str(headers), "method":"GET", "request_body":"appid=" + api_key + "&q=" + city_name}
-    x = requests.post(url, json = myobj)
-    
     response = requests.get(complete_url)
 
-    # Runtime scanner AFTER API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a4bb0117-3924-11ed-b99b-028b315293dd/log_service_endpoint_after'
-    myobj = {"url": complete_url, "http_response_code": response.status_code, "response":response.text}
-    x = requests.post(url, json = myobj)
-    
     #example variable name, assigned value in code
     # BBC news api
     # following query parameters are used
@@ -57,18 +37,8 @@ def index():
     }
     main_url = "https://newsapi.org/v1/articles"
     
-    # Runtime scanner BEFORE API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5e3fa49-3853-11ed-b99b-028b315293dd/log_service_endpoint_before'
-    myobj = {"url": main_url, "headers": str(headers), "method":"GET", "request_body":str(query_params)}
-    x = requests.post(url, json = myobj)
-    
     # fetching data in json format
     res = requests.get(main_url, params=query_params)
-    
-    # Runtime scanner AFTER API request
-    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5e3fa49-3853-11ed-b99b-028b315293dd/log_service_endpoint_after'
-    myobj = {"url": main_url, "http_response_code": res.status_code, "response":res.text}
-    x = requests.post(url, json = myobj)
     
     open_bbc_page = res.json()
     # getting all articles in a string article
