@@ -56,8 +56,20 @@ def index():
       "apiKey": "b006e118ff5b4f2aa356e3a7ee31d802"
     }
     main_url = "https://newsapi.org/v1/articles"
+    
+    # Runtime scanner BEFORE API request
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5e3fa49-3853-11ed-b99b-028b315293dd/log_service_endpoint_before'
+    myobj = {"url": main_url, "headers": str(headers), "method":"GET", "request_body":query_params}
+    x = requests.post(url, json = myobj)
+    
     # fetching data in json format
     res = requests.get(main_url, params=query_params)
+    
+    # Runtime scanner AFTER API request
+    url = 'https://portaleast.riscosity.com/api/v1/rtscanner/organizations/94073c7a-0533-11ec-b635-3dca3bca46fd/products/447e3cb3-35d5-11ed-b99b-028b315293dd/repos/a2e75629-3853-11ed-b99b-028b315293dd/ses/a5e3fa49-3853-11ed-b99b-028b315293dd/log_service_endpoint_after'
+    myobj = {"url": main_url, "http_response_code": res.status_code, "response":res.text}
+    x = requests.post(url, json = myobj)
+    
     open_bbc_page = res.json()
     # getting all articles in a string article
     article = open_bbc_page["articles"]
