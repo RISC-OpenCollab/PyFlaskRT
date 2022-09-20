@@ -10,7 +10,7 @@ def index():
     query = {"lat":"45", "lon":"180"}
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
-    # Target API request
+    # Target API request to api.open-notify
     response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
     
     #example variable name, assigned to value in code
