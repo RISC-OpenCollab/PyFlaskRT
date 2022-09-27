@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     
-    #example simple API call
+    #example simple API call with simple params
     query = {"lat":"45", "lon":"180"}
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
