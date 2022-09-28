@@ -11,15 +11,10 @@ def index():
     headers = {"Content-Type": "application/json; charset=utf-8"}
     
     # Target API request to api.open-notify.org endpoint
-    riscosityurl='https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c73836e-352a-11ed-8089-063d213fbde3/log_service_endpoint_before'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "headers": str(headers), "method":"GET", "request_body":str(query)}
-    x = requests.post(riscosityurl, json = myobj)
 
     response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
     
-    riscosityurl = 'https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c73836e-352a-11ed-8089-063d213fbde3/log_service_endpoint_after'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "http_response_code": response.status_code, "response":response.text}
-    x = requests.post(riscosityurl, json = myobj)
+
     #example variable name, assigned to value in code
     # Enter your API key here
     api_key = "0c0e734e8658fca29d68ceef3cdedb0c"
@@ -30,16 +25,10 @@ def index():
     complete_url = "http://api.openweathermap.org/data/2.5/weather?" + "appid=" + api_key + "&q=" + city_name
     # get method of requests module
     # return response object
-    
-    riscosityurl='https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c7698e2-352a-11ed-8089-063d213fbde3/log_service_endpoint_before'
-    myobj = {"url": complete_url, "headers": str(headers), "method":"GET", "request_body":str(query)}
-    x = requests.post(riscosityurl, json = myobj)
-    
+   
     response = requests.get(complete_url)
     
-    riscosityurl = 'https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c7698e2-352a-11ed-8089-063d213fbde3/log_service_endpoint_after'
-    myobj = {"url": complete_url, "http_response_code": response.status_code, "response":response.text}
-    x = requests.post(riscosityurl, json = myobj)
+
 
     #example variable name, assigned value in code
     # BBC news api
