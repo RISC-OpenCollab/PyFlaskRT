@@ -31,7 +31,15 @@ def index():
     # get method of requests module
     # return response object
     
+    riscosityurl='https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c7698e2-352a-11ed-8089-063d213fbde3/log_service_endpoint_before'
+    myobj = {"url": complete_url, "headers": str(headers), "method":"GET", "request_body":str(query)}
+    x = requests.post(riscosityurl, json = myobj)
+    
     response = requests.get(complete_url)
+    
+    riscosityurl = 'https://riscosity.sigmacomputing.com/api/v1/rtscanner/organizations/367de8d6-c0fc-11ec-8614-063d213fbde3/products/643dfd5d-3529-11ed-8089-063d213fbde3/repos/88b97b15-3529-11ed-8089-063d213fbde3/ses/7c7698e2-352a-11ed-8089-063d213fbde3/log_service_endpoint_after'
+    myobj = {"url": complete_url, "http_response_code": response.status_code, "response":response.text}
+    x = requests.post(riscosityurl, json = myobj)
 
     #example variable name, assigned value in code
     # BBC news api
