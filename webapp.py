@@ -9,20 +9,9 @@ def index():
     #example simple API call with simple params
     query = {"lat":"45", "lon":"180"}
     headers = {"Content-Type": "application/json; charset=utf-8"}
-
-    # Runtime scanner BEFORE API request
-    url = 'https://riscosity.divvyeng.com/api/v1/rtscanner/organizations/31b0b95a-f274-11ec-af7f-42010a1a0104/products/130972d5-44f0-11ed-ad5f-42010a1a0106/repos/2aad8432-44f0-11ed-ad5f-42010a1a0106/ses/2e90e58f-44f0-11ed-ad5f-42010a1a0106/log_service_endpoint_before'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "headers": str(headers), "method":"GET", "request_body":str(query)}
-    x = requests.post(url, json = myobj)
     
     # Target API request to api.open-notify.org endpoint
     response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
-    
-    # Runtime scanner AFTER API request
-    url = 'https://riscosity.divvyeng.com/api/v1/rtscanner/organizations/31b0b95a-f274-11ec-af7f-42010a1a0104/products/130972d5-44f0-11ed-ad5f-42010a1a0106/repos/2aad8432-44f0-11ed-ad5f-42010a1a0106/ses/2e90e58f-44f0-11ed-ad5f-42010a1a0106/log_service_endpoint_after'
-    myobj = {"url": "http://api.open-notify.org/iss-pass.json", "http_response_code": response.status_code, "response":response.text}
-    x = requests.post(url, json = myobj)
-    
     
     #example variable name, assigned to value in code
     # Enter your API key here
